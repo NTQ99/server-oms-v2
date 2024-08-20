@@ -1,9 +1,7 @@
-package vn.com.mbbank.steady.core.util;
+package ntq.server.common.util;
 
 import lombok.extern.log4j.Log4j2;
-import vn.com.mbbank.steady.common.exception.BusinessErrorCode;
-import vn.com.mbbank.steady.common.util.CommonErrorCode;
-import vn.com.mbbank.steady.common.util.Constant;
+import ntq.server.common.exception.BusinessErrorCode;
 
 import java.lang.reflect.Modifier;
 import java.util.Arrays;

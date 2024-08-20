@@ -1,1 +1,66 @@
-logging.level.vn.
+logging.level.org.hibernate.orm.jdbc.bind: TRACE
+logging.level.org.hibernate.stat: DEBUG
+logging.level.org.hibernate.SQL: DEBUG
+logging:
+  config: classpath:log4j2.xml
+server:
+  port: 8888
+  servlet:
+    context-path: /oms/v1
+  error:
+    include-binding-errors: always
+    include-message: always
+management:
+  security:
+    enabled: false
+management.endpoints.web.exposure.include: "health,info,prometheus"
+management.endpoint.health.show-details: always
+management.endpoint.health.probes.enabled: true
+spring:
+  application:
+    name: oms
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        generate_statistics: true
+        query.in_clause_parameter_padding: true
+    database-platform: org.hibernate.dialect.OracleDialect
+  datasource:
+    url: jdbc:oracle:thin@localhost:1521
+    username: local
+    password: pass
+  mvc:
+    async:
+      request-timeout: 120000
+  data:
+    redis:
+      host:
+      port:
+      password:
+      timeout:
+  kafka:
+    bootstrap-servers:
+    security:
+      protocol: PLAINTEXT
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      properties:
+        delivery.timeout.ms: 300000
+        linger.ms: 100
+        batch.size: 6384
+        enable.idempotence: true
+    consumer:
+      group-id: oms-service
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      enable-auto-commit: false
+    listener:
+      concurrency: 16
+      ack-mode: MANUAL
+authentication.keycloak.jwks-url:

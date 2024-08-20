@@ -1,4 +1,4 @@
-package vn.com.mbbank.steady.core.util;
+package ntq.server.oms.util;
 
 import org.springframework.dao.DataAccessException;
 

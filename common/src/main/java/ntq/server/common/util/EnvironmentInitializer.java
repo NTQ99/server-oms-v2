@@ -1,10 +1,12 @@
-package vn.com.mbbank.steady.core.util;
-
-import vn.com.mbbank.steady.common.util.Json;
+package ntq.server.common.util;
 
 import java.lang.invoke.MethodHandles;
 
 public class EnvironmentInitializer {
+  private EnvironmentInitializer() {
+    throw new UnsupportedOperationException();
+  }
+
   public static void initialize() {
     try {
       var lookup = MethodHandles.lookup();

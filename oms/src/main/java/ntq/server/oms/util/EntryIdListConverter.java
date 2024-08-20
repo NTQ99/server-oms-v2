@@ -1,10 +1,10 @@
-package vn.com.mbbank.steady.core.util;
+package ntq.server.oms.util;
 
 import com.dslplatform.json.JsonReader;
 import com.dslplatform.json.JsonWriter;
 import com.dslplatform.json.runtime.Generics;
 import jakarta.persistence.AttributeConverter;
-import vn.com.mbbank.steady.common.util.Json;
+import ntq.server.common.util.Json;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
